@@ -37,6 +37,7 @@
           var playSong = function(song) {
               currentBuzzObject.play();
               song.playing = true;
+          };
           /**
           * @function stopSong
           * @desc stops current buzz object and sets playing attr to null
@@ -128,5 +129,5 @@
 
      angular
          .module('blocJams')
-         .factory('SongPlayer', ['Fixtures', SongPlayer);
+         .factory('SongPlayer', ['Fixtures', SongPlayer]);
  })();

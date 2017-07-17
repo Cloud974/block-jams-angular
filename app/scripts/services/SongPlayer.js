@@ -38,11 +38,7 @@
           var playSong = function(song) {
               currentBuzzObject.play();
               song.playing = true;
-<<<<<<< HEAD
           };
-=======
-          }
->>>>>>> checkpoint_9_Directives-pt-1
           /**
           * @function stopSong
           * @desc stops current buzz object and sets playing attr to null

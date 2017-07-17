@@ -19,7 +19,8 @@
            */
           var setSong = function(song) {
               if (currentBuzzObject) {
-                  stopSong(song);
+                currentBuzzObject.stop();
+                SongPlayer.currentSong.playing = null;
               }
 
               currentBuzzObject = new buzz.sound(song.audioUrl, {
@@ -37,7 +38,11 @@
           var playSong = function(song) {
               currentBuzzObject.play();
               song.playing = true;
+<<<<<<< HEAD
           };
+=======
+          }
+>>>>>>> checkpoint_9_Directives-pt-1
           /**
           * @function stopSong
           * @desc stops current buzz object and sets playing attr to null
@@ -45,7 +50,7 @@
           */
           var stopSong = function(song) {
               currentBuzzObject.stop();
-              song.playing = null;
+              song.playing = false;
 
           };
           /**
@@ -88,8 +93,7 @@
           */
           SongPlayer.pause = function(song) {
               song = song || SongPlayer.currentSong;
-              currentBuzzObject.pause();
-              song.playing = false;
+              stopSong();
           };
           /**
           *@function previous
@@ -100,7 +104,7 @@
               currentSongIndex --;
 
               if (currentSongIndex < 0) {
-                  stopSong(song);
+                  stopSong(SongPlayer.currentSong);
               } else {
                   var song = currentAlbum.songs[currentSongIndex];
                   setSong(song);
@@ -116,7 +120,7 @@
               currentSongIndex ++;
 
               if (currentSongIndex > currentAlbum.songs.length) {
-                  stopSong();
+                  stopSong(SongPlayer.currentSong);
               } else {
                   var song = currentAlbum.songs[currentSongIndex];
                   setSong(song);
